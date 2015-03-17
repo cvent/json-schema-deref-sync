@@ -1,4 +1,4 @@
-# json-schema-deref
+# json-schema-deref-sync
 
 Dereference JSON pointers in a JSON schemas with their true resolved values.
 Basically a lighter, synchronous version of [json-schema-deref](https://github.com/bojand/json-schema-deref) but omits web references and
@@ -77,7 +77,7 @@ This utility lets you do that:
 
 
 ```js
-var deref = require('json-schema-deref');
+var deref = require('json-schema-deref-sync');
 var myschema = require('schema.json');
 
 var fullSchema = deref(myschema);

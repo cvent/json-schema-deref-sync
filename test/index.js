@@ -1,4 +1,4 @@
-describe('json-schema-deref', function () {
+describe('json-schema-deref-sync', function () {
   var expect = require('chai').expect;
   var deref = require('../lib');
   var path = require('path');
