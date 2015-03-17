@@ -1,0 +1,25 @@
+{
+  "description": "Just a basic schema.",
+  "title": "Basic Object",
+  "type": "object",
+  "definitions": {
+    "bar": {
+      "description": "bar property",
+      "type": "boolean"
+    }
+  },
+  "properties": {
+    "id": {
+      "$ref": "db://custom.json#/id.json"
+    },
+    "foo": {
+      "description": "foo property",
+      "readOnly": true,
+      "type": "number"
+    },
+    "bar": {
+      "description": "bar property",
+      "type": "boolean"
+    }
+  }
+}
