@@ -198,5 +198,32 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it('should work with anyOf array properties', function () {
+      var input = require('./schemas/anyofref.json');
+      var expected = require('./schemas/anyofref.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
+
+    it('should work with dots (.) in properties', function () {
+      var input = require('./schemas/dotprop.json');
+      var expected = require('./schemas/dotprop.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
+
+    it('should work with top level ref properties', function () {
+      var input = require('./schemas/toplevel.json');
+      var expected = require('./schemas/toplevel.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
