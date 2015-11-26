@@ -83,6 +83,15 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
+    it('should work with absolute files with # at end', function () {
+      var input = require('./schemas/filerefswithhash');
+      var expected = require('./schemas/basic.json'); // same expected output
+
+      var schema = deref(input);
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
+
     it('should work with simple web refs', function () {
       var input = require('./schemas/webrefs');
       var expected = require('./schemas/webrefs.expected.json'); // same expected output
@@ -92,15 +101,13 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
-    it('should work with simple web refs ended with #', function (done) {
+    it('should work with simple web refs ended with #', function () {
       var input = require('./schemas/webrefswithhash');
-      var expected = require('./schemas/localrefs.expected.json'); // same expected output
+      var expected = require('./schemas/webrefswithhash.expected.json'); // same expected output
 
-      deref(input, function (err, schema) {
-        expect(err).to.not.be.ok;
-        expect(schema).to.deep.equal(expected);
-        done();
-      });
+      var schema = deref(input);
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
     });
 
     it('should work with web and local mixed refs', function () {
@@ -112,9 +119,9 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
-    it('should work with simple web refs ended with #', function () {
+    it('should work with simple web refs ended with # and option', function () {
       var input = require('./schemas/webrefswithhash');
-      var expected = require('./schemas/localrefs.expected.json'); // same expected output
+      var expected = require('./schemas/webrefswithhash.expected.json'); // same expected output
 
       var schema = deref(input, {baseFolder: './test/schemas'});
       expect(schema).to.be.ok;
