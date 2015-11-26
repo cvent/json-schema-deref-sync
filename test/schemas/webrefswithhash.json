@@ -4,13 +4,13 @@
   "type": "object",
   "definitions": {
     "id": {
-      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/id.json#"
+      "$ref": "id.json#"
     },
     "foo": {
-      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/foo.json#"
+      "$ref": "foo.json#"
     },
     "bar": {
-      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/bar.json#"
+      "$ref": "bar.json#"
     }
   },
   "properties": {

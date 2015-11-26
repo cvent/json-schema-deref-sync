@@ -112,6 +112,15 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
+    it('should work with simple web refs ended with #', function () {
+      var input = require('./schemas/webrefswithhash');
+      var expected = require('./schemas/localrefs.expected.json'); // same expected output
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
+
     it('should work with web refs with json pointers', function () {
       var input = require('./schemas/webrefswithpointer');
       var expected = require('./schemas/webrefswithpointer.expected.json');
