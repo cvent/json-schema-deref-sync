@@ -252,5 +252,16 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it.skip('should work with circular ref properties', function () {
+      var input = require('./schemas/file-circular-root.json');
+      var expected = require('./schemas/file-circular-root.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+
+      console.dir(schema, {depth:null})
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
