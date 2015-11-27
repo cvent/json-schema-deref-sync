@@ -15,13 +15,13 @@
   },
   "properties": {
     "id": {
-      "$ref": "#/definitions/id"
+      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/id.json#"
     },
     "foo": {
-      "$ref": "#/definitions/foo"
+      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/foo.json#"
     },
     "bar": {
-      "$ref": "#/definitions/bar"
+      "$ref": "https://raw.githubusercontent.com/bojand/json-schema-test-samples/master/bar.json#"
     }
   }
 }
