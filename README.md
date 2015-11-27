@@ -89,6 +89,8 @@ var fullSchema = deref(myschema);
 
 Dereferences `$ref`'s in json schema to actual resolved values. Supports local, and file refs.
 
+If circular references are found it returns an instance of `Error`.
+
 Parameters:
 
 ##### `schema`
