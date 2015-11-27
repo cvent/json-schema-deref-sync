@@ -7,7 +7,7 @@
       "description": "something",
       "type": "string"
     },
-    "prop3": {
+    "prop4": {
       "$ref": "circular-bar.json"
     }
   }

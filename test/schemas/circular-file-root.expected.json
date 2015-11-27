@@ -43,7 +43,7 @@
                   "description": "something",
                   "type": "string"
                 },
-                "prop3": {
+                "prop4": {
                   "$ref": "circular-bar.json"
                 }
               }
@@ -55,53 +55,13 @@
   },
   "properties": {
     "id": {
-      "description": "Unique identifier.",
-      "readOnly": true,
-      "format": "uuid",
-      "example": "01234567-89ab-cdef-0123-456789abcdef",
-      "type": "string",
-      "minLength": 1
+      "$ref": "common-definitions.json#/definitions/id"
     },
     "foo": {
-      "description": "foo property",
-      "readOnly": true,
-      "type": "number"
+      "$ref": "foo.json"
     },
     "bar": {
-      "description": "Just a basic schema.",
-      "title": "Basic Object",
-      "type": "object",
-      "properties": {
-        "some1": {
-          "description": "something",
-          "type": "string"
-        },
-        "prop2": {
-          "description": "Just a basic schema.",
-          "title": "Basic Object",
-          "type": "object",
-          "properties": {
-            "somethingelse": {
-              "description": "something",
-              "type": "string"
-            },
-            "prop3": {
-              "description": "Just a basic schema.",
-              "title": "Basic Object",
-              "type": "object",
-              "properties": {
-                "somethingelse": {
-                  "description": "something",
-                  "type": "string"
-                },
-                "prop3": {
-                  "$ref": "circular-bar.json"
-                }
-              }
-            }
-          }
-        }
-      }
+      "$ref": "circular-bar.json"
     }
   }
 }

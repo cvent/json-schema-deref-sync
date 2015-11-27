@@ -253,15 +253,36 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
-    it.skip('should work with circular ref properties', function () {
-      var input = require('./schemas/file-circular-root.json');
-      var expected = require('./schemas/file-circular-root.expected.json');
+    it('should work with local circular ref properties', function () {
+      var input = require('./schemas/circularlocalref.json');
+      var expected = require('./schemas/circularlocalref.expected.json');
 
       var schema = deref(input, {baseFolder: './test/schemas'});
 
-      console.dir(schema, {depth:null})
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
+    });
+
+    it('should work with local self referencing properties', function () {
+      var input = require('./schemas/circularself.json');
+      var expected = require('./schemas/circularself.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+
+      expect(schema).to.be.ok;
+      //expect(schema).to.deep.equal(expected);
+      expect(schema).to.be.an.instanceOf(Error);
+    });
+
+    it('should work with circular file ref properties', function () {
+      var input = require('./schemas/circular-file-root.json');
+      var expected = require('./schemas/circular-file-root.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+
+      expect(schema).to.be.ok;
+      //expect(schema).to.deep.equal(expected);
+      expect(schema).to.be.an.instanceOf(Error);
     });
   });
 });
