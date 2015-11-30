@@ -292,5 +292,14 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it('should work with cyclycal object', function () {
+      var input = require('./schemas/cyclicaljs.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+
+      expect(schema).to.be.ok;
+      expect(schema).to.be.an.instanceOf(Error);
+    });
   });
 });
