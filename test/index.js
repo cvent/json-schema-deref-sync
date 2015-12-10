@@ -301,5 +301,14 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.be.an.instanceOf(Error);
     });
+
+    it('should work with nested folders object', function () {
+      var input = require('./schemas/nestedfolder.json');
+      var expected = require('./schemas/nestedfolder.expected.json');
+
+      var schema = deref(input, {baseFolder: './test/schemas'});
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
