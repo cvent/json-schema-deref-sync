@@ -1,6 +1,6 @@
 describe('json-schema-deref-sync', function () {
   var expect = require('chai').expect;
-  var deref = require('../lib');
+  var deref = require('../dist');
   var path = require('path');
   var fsx = require('fs.extra');
   var async = require('async');
@@ -8,6 +8,7 @@ describe('json-schema-deref-sync', function () {
   var tempFolder = '/var/tmp/json-deref-schema-tests/';
   before(function (done) {
     var srcfiles = ['id.json', 'foo.json', 'bar.json'];
+    fsx.rmrfSync(tempFolder);
     fsx.mkdirpSync(tempFolder);
     async.eachSeries(srcfiles, function (filePath, cb) {
       var srcFile = path.resolve(path.join(__dirname, './schemas', filePath));
@@ -42,7 +43,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/basicfileref');
       var expected = require('./schemas/basic');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -51,7 +52,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/basicfileref');
       var expected = require('./schemas/basic');
 
-      var schema = deref(input, {baseFolder: __dirname + '/./schemas'});
+      var schema = deref(input, { baseFolder: __dirname + '/./schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -60,7 +61,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/basicfileref');
       var expected = require('./schemas/basic');
 
-      var schema = deref(input, {baseFolder: path.join(__dirname, 'schemas')});
+      var schema = deref(input, { baseFolder: path.join(__dirname, 'schemas') });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -69,7 +70,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/localandfilerefs');
       var expected = require('./schemas/localrefs.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -123,7 +124,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/webrefswithhash');
       var expected = require('./schemas/webrefswithhash.expected.json'); // same expected output
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -141,7 +142,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/filerefswithpointer');
       var expected = require('./schemas/filerefswithpointer.expected.json'); // same expected output
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -150,7 +151,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/api.props.json');
       var expected = require('./schemas/api.props.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -159,7 +160,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/api.linksref.json');
       var expected = require('./schemas/api.linksref.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -168,7 +169,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/arrayfileref.json');
       var expected = require('./schemas/arrayfileref.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -177,7 +178,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/apideeplink.json');
       var expected = require('./schemas/apideeplink.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -186,7 +187,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/apinestedrefs.json');
       var expected = require('./schemas/apinestedrefs.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -221,7 +222,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/missing.json');
       var expected = require('./schemas/missing.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -230,7 +231,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/anyofref.json');
       var expected = require('./schemas/anyofref.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -239,7 +240,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/dotprop.json');
       var expected = require('./schemas/dotprop.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -248,28 +249,27 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/toplevel.json');
       var expected = require('./schemas/toplevel.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
 
     // TODO this should really return an error ?
-    it.skip('should work with local circular ref properties', function () {
+    it('should work with local circular ref properties', function () {
       var input = require('./schemas/circularlocalref.json');
       var expected = require('./schemas/circularlocalref.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
 
       expect(schema).to.be.ok;
-      expect(schema).to.deep.equal(expected);
-      //expect(schema).to.be.an.instanceOf(Error);
+      expect(schema).to.be.an.instanceOf(Error);
     });
 
     it('should work with local self referencing properties', function () {
       var input = require('./schemas/circularself.json');
       var expected = require('./schemas/circularself.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
 
       expect(schema).to.be.ok;
       expect(schema).to.be.an.instanceOf(Error);
@@ -279,7 +279,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/circular-file-root.json');
       var expected = require('./schemas/circular-file-root.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
 
       expect(schema).to.be.ok;
       expect(schema).to.be.an.instanceOf(Error);
@@ -289,7 +289,7 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/filerefarray-schema1.json');
       var expected = require('./schemas/filerefarray.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
@@ -297,7 +297,7 @@ describe('json-schema-deref-sync', function () {
     it('should work with cyclycal object', function () {
       var input = require('./schemas/cyclicaljs.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
 
       expect(schema).to.be.ok;
       expect(schema).to.be.an.instanceOf(Error);
@@ -307,7 +307,16 @@ describe('json-schema-deref-sync', function () {
       var input = require('./schemas/nestedfolder.json');
       var expected = require('./schemas/nestedfolder.expected.json');
 
-      var schema = deref(input, {baseFolder: './test/schemas'});
+      var schema = deref(input, { baseFolder: './test/schemas' });
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
+
+    it('should work with nested schema issue 12', function () {
+      var input = require('./schemas/issue12.json');
+      var expected = require('./schemas/issue12.expected.json');
+
+      var schema = deref(input, { baseFolder: './test/schemas' });
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
