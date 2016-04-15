@@ -100,27 +100,3 @@ Derefs <code>$ref</code>'s in JSON Schema to actual resolved values. Supports lo
 | options.baseFolder | <code>String</code> | the base folder to get relative path files from. Default is <code>process.cwd()</code> |
 | options.failOnMissing | <code>Boolean</code> | By default missing / unresolved refs will be left as is with their ref value intact.                                        If set to <code>true</code> we will error out on first missing ref that we cannot                                        resolve. Default: <code>false</code>. |
 
-## Custom Loader
-
-Let's say we want to get $ref's from a MongoDB database, and our `$ref` objects in the JSON Schema might be something like:
-
-```json
-"foo": {
-  "$ref":"mongodb:507c35dd8fada716c89d0013"
-}
-```
-
-Our custom loader function passed in the `options` `loader` parameter would look something like:
-
-```js
-function myMongoDBLoader(ref, option, fn) {
-  if(ref.indexOf('mongodb:') === 0) {
-    var id = ref.substring(8);
-    return collection.findOne({_id:id}, fn);
-  }
-
-  // not ours, pass back nothing to keep it the same
-  // or pass error and use failOnMissing to abort
-  return fn();
-}
-```
