@@ -227,6 +227,15 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected);
     });
 
+    it('should error with missing properties if option specified', function () {
+      var input = require('./schemas/missing.json');
+      var expected = require('./schemas/missing.expected.json');
+
+      var schema = deref(input, { baseFolder: './test/schemas', failOnMissing: true });
+      expect(schema).to.be.ok;
+      expect(schema).to.be.an.instanceOf(Error);
+    });
+
     it('should work with anyOf array properties', function () {
       var input = require('./schemas/anyofref.json');
       var expected = require('./schemas/anyofref.expected.json');
