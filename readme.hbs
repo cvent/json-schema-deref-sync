@@ -85,18 +85,4 @@ var fullSchema = deref(myschema);
 
 ## API Reference
 
-<a name="deref"></a>
-
-## deref(schema, options) ⇒ <code>Object</code> &#124; <code>Error</code>
-Derefs <code>$ref</code>'s in JSON Schema to actual resolved values. Supports local, and file refs.
-
-**Kind**: global function  
-**Returns**: <code>Object</code> &#124; <code>Error</code> - the deref schema oran instance of <code>Error</code> if error.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| schema | <code>Object</code> | The JSON schema |
-| options | <code>Object</code> | options |
-| options.baseFolder | <code>String</code> | the base folder to get relative path files from. Default is <code>process.cwd()</code> |
-| options.failOnMissing | <code>Boolean</code> | By default missing / unresolved refs will be left as is with their ref value intact.                                        If set to <code>true</code> we will error out on first missing ref that we cannot                                        resolve. Default: <code>false</code>. |
-
+{{>all-docs~}}
