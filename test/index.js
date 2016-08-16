@@ -329,5 +329,14 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it('should work with paths of the same name as ref', function () {
+      var input = require('./schemas/notcircularlocalref.json');
+      var expected = require('./schemas/notcircularlocalref.expected.json');
+
+      var schema = deref(input);
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
