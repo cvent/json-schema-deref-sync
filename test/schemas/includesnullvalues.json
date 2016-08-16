@@ -1,0 +1,20 @@
+{
+  "title": "object with falsy values and references",
+  "isNull": null,
+  "isFalse": false,
+  "isZero": 0,
+  "properties": {
+    "nullRef": {
+      "$ref": "#/isNull"
+    },
+    "falseRef": {
+      "$ref": "#/isFalse"
+    },
+    "zeroRef": {
+      "$ref": "#/isZero"
+    },
+    "otherTitle": {
+      "$ref": "#/title"
+    }
+  }
+}

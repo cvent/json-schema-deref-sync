@@ -1,0 +1,12 @@
+{
+  "title": "object with falsy values and references",
+  "isNull": null,
+  "isFalse": false,
+  "isZero": 0,
+  "properties": {
+    "nullRef": null,
+    "falseRef": false,
+    "zeroRef": 0,
+    "otherTitle": "object with falsy values and references"
+  }
+}
