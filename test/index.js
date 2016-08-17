@@ -329,5 +329,14 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it('should work with falsy values in schema', function () {
+      var input = require('./schemas/includesnullvalues.json');
+      var expected = require('./schemas/includesnullvalues.expected.json');
+
+      var schema = deref(input);
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
