@@ -338,5 +338,14 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok;
       expect(schema).to.deep.equal(expected);
     });
+
+    it('should work with null values in default attribute', function () {
+      const input = require('./schemas/null.json');
+      const expected = require('./schemas/null.expected.json');
+
+      var schema = deref(input, { baseFolder: './test/schemas' });
+      expect(schema).to.be.ok;
+      expect(schema).to.deep.equal(expected);
+    });
   });
 });
