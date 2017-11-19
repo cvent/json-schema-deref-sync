@@ -1,5 +1,10 @@
 # json-schema-deref-sync
 
+[![npm version](https://img.shields.io/npm/v/json-schema-deref-sync.svg?style=flat-square)](https://www.npmjs.com/package/json-schema-deref-sync)
+[![build status](https://img.shields.io/travis/bojand/json-schema-deref-sync/master.svg?style=flat-square)](https://travis-ci.org/bojand/json-schema-deref-sync)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
+[![License](https://img.shields.io/github/license/bojand/json-schema-deref-sync.svg?style=flat-square)](https://raw.githubusercontent.com/bojand/json-schema-deref-sync/master/LICENSE)
+
 Dereference JSON pointers in a JSON schemas with their true resolved values.
 Basically a lighter, synchronous version of [json-schema-deref](https://github.com/bojand/json-schema-deref) but omits web references and
 custom loaders.
@@ -88,11 +93,11 @@ var fullSchema = deref(myschema);
 
 <a name="deref"></a>
 
-## deref(schema, options) ⇒ <code>Object</code> &#124; <code>Error</code>
+## deref(schema, options) ⇒ <code>Object</code> \| <code>Error</code>
 Derefs <code>$ref</code>'s in JSON Schema to actual resolved values. Supports local, and file refs.
 
 **Kind**: global function  
-**Returns**: <code>Object</code> &#124; <code>Error</code> - the deref schema oran instance of <code>Error</code> if error.  
+**Returns**: <code>Object</code> \| <code>Error</code> - the deref schema oran instance of <code>Error</code> if error.  
 
 | Param | Type | Description |
 | --- | --- | --- |
