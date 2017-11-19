@@ -26,7 +26,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "clone": "~2.1.0",
-    "dag-map": "~2.0.0",
+    "dag-map": "~1.0.0",
     "is-valid-path": "^0.1.1",
     "lodash": "^4.7.0",
     "md5": "~2.2.0",

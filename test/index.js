@@ -264,13 +264,11 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected)
     })
 
-    // TODO this should really return an error ?
     it('should work with local circular ref properties', function () {
       var input = require('./schemas/circularlocalref.json')
       var expected = require('./schemas/circularlocalref.expected.json')
 
       var schema = deref(input, { baseFolder: './schemas' })
-
       expect(schema).to.be.ok
       expect(schema).to.be.an.instanceOf(Error)
     })
