@@ -6,5 +6,3 @@ dump.rdb
 npm-debug.log
 .nyc_output
 test
-lib
-test.js
