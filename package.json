@@ -28,12 +28,12 @@
     "clone": "~2.1.0",
     "dag-map": "~1.0.0",
     "is-valid-path": "^0.1.1",
-    "lodash": "^4.7.0",
+    "lodash": "^4.17.10",
     "md5": "~2.2.0",
     "memory-cache": "~0.2.0",
     "mpath": "~0.3.0",
-    "valid-url": "~1.0.9",
-    "traverse": "~0.6.6"
+    "traverse": "~0.6.6",
+    "valid-url": "~1.0.9"
   },
   "devDependencies": {
     "async": "~2.6.0",
