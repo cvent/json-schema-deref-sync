@@ -105,5 +105,6 @@ Derefs <code>$ref</code>'s in JSON Schema to actual resolved values. Supports lo
 | options | <code>Object</code> | options |
 | options.baseFolder | <code>String</code> | the base folder to get relative path files from. Default is <code>process.cwd()</code> |
 | options.failOnMissing | <code>Boolean</code> | By default missing / unresolved refs will be left as is with their ref value intact.                                        If set to <code>true</code> we will error out on first missing ref that we cannot                                        resolve. Default: <code>false</code>. |
-| options.mergeAdditionalProperties | <code>Boolean</code> | By default properties in a object with $ref will be removed in the output.                                                    If set to <code>true</code> they will be added/overwrite the ouput. |
+| options.mergeAdditionalProperties | <code>Boolean</code> | By default properties in a object with $ref will be removed in the output.                                                    If set to <code>true</code> they will be added/overwrite the output.                                                    Default: <code>false</code>. |
+| options.removeIds | <code>Boolean</code> | By default <code>$id</code> fields will get copied when dereferencing.                                    If set to <code>true</code> they will be removed.                                    Default: <code>false</code>. |
 
