@@ -11,11 +11,15 @@ describe('json-schema-deref-sync', function () {
     var srcfiles = ['id.json', 'foo.json', 'bar.json']
     fsx.rmrfSync(tempFolder)
     fsx.mkdirpSync(tempFolder)
-    async.eachSeries(srcfiles, function (filePath, cb) {
-      var srcFile = path.resolve(path.join(__dirname, './schemas', filePath))
-      var desFile = path.join('/var/tmp/json-deref-schema-tests/', filePath)
-      fsx.copy(srcFile, desFile, cb)
-    }, done)
+    async.eachSeries(
+      srcfiles,
+      function (filePath, cb) {
+        var srcFile = path.resolve(path.join(__dirname, './schemas', filePath))
+        var desFile = path.join('/var/tmp/json-deref-schema-tests/', filePath)
+        fsx.copy(srcFile, desFile, cb)
+      },
+      done
+    )
   })
 
   after(function (done) {
@@ -343,6 +347,14 @@ describe('json-schema-deref-sync', function () {
       const expected = require('./schemas/null.expected.json')
 
       var schema = deref(input, { baseFolder: './test/schemas' })
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
+
+    it('should work with paths of the same name as ref', function () {
+      var input = require('./schemas/notcircularlocalref.json')
+      var expected = require('./schemas/notcircularlocalref.expected.json')
+      var schema = deref(input)
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
