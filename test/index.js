@@ -358,5 +358,13 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
+
+    it('should work with keys containing "."', function () {
+      var input = require('./schemas/dot-key.json')
+      var expected = require('./schemas/dot-key.expected.json')
+      var schema = deref(input)
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
   })
 })
