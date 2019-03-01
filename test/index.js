@@ -5,6 +5,7 @@ describe('json-schema-deref-sync', function () {
   var path = require('path')
   var fsx = require('fs.extra')
   var async = require('async')
+  var fileLoader = require('../lib/loaders/file')
 
   var tempFolder = '/var/tmp/json-deref-schema-tests/'
   before(function (done) {
@@ -166,6 +167,15 @@ describe('json-schema-deref-sync', function () {
       var expected = require('./schemas/api.linksref.expected.json')
 
       var schema = deref(input, { baseFolder: './test/schemas' })
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
+
+    it('should work with nested json pointers to files and links ref to files via custom loader', function () {
+      var input = require('./schemas/api.linksref.json')
+      var expected = require('./schemas/api.linksref.expected.json')
+
+      var schema = deref(input, { baseFolder: './test/schemas', loaders: { file: fileLoader } })
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
