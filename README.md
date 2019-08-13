@@ -33,9 +33,6 @@ Let's say you have the following JSON Schema:
     "id": {
       "$ref": "#/definitions/id"
     },
-    "foo": {
-      "$ref": "http://www.mysite.com/myschema.json#/definitions/foo"
-    },
     "bar": {
       "$ref": "bar.json"
     }
@@ -64,11 +61,6 @@ Sometimes you just want that schema to be fully expanded, with `$ref`'s being th
       "type": "string",
       "minLength": 1,
       "readOnly": true
-    },
-    "foo": {
-      "description": "foo property",
-      "readOnly": true,
-      "type": "number"
     },
     "bar": {
       "description": "bar property",
