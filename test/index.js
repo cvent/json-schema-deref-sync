@@ -9,7 +9,7 @@ describe('json-schema-deref-sync', function () {
 
   var tempFolder = '/var/tmp/json-deref-schema-tests/'
   before(function (done) {
-    var srcfiles = ['id.json', 'foo.json', 'bar.json']
+    var srcfiles = ['id.json', 'foo.json', 'bar.json', 'id.yml', 'components.yaml']
     fsx.rmrfSync(tempFolder)
     fsx.mkdirpSync(tempFolder)
     async.eachSeries(
@@ -95,6 +95,15 @@ describe('json-schema-deref-sync', function () {
       var expected = require('./schemas/basic.json') // same expected output
 
       var schema = deref(input)
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
+
+    it('should work with yaml files', function () {
+      var input = require('./schemas/filerefsyaml.json')
+      var expected = require('./schemas/basic')
+
+      var schema = deref(input, { baseFolder: './test/schemas' })
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
