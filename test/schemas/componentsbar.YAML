@@ -1,9 +1,5 @@
 components:
   schemas:
-    Foo:
-      "description": "foo property"
-      "readOnly": true
-      "type": "number"
     Bar:
       "description": "bar property"
       "type": "boolean"
