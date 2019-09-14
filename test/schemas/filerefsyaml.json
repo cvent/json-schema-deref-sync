@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "/var/tmp/json-deref-schema-tests/id.yml"
+      "$ref": "/var/tmp/json-deref-schema-tests/components.yaml#/components/schemas/Id"
     },
     "foo": {
-      "$ref": "/var/tmp/json-deref-schema-tests/componentsfoo.yaml#/components/schemas/Foo"
+      "$ref": "/var/tmp/json-deref-schema-tests/components.yaml#/components/schemas/Foo"
     },
     "bar": {
-      "$ref": "file:/var/tmp/json-deref-schema-tests/componentsbar.YAML#/components/schemas/Bar"
+      "$ref": "file:/var/tmp/json-deref-schema-tests/components.yaml#/components/schemas/Bar"
     }
   }
 }

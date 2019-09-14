@@ -10,7 +10,7 @@ describe('json-schema-deref-sync', function () {
 
   var tempFolder = '/var/tmp/json-deref-schema-tests/'
   before(function (done) {
-    var srcfiles = ['id.json', 'foo.json', 'bar.json', 'id.yml', 'componentsfoo.yaml', 'componentsbar.YAML']
+    var srcfiles = ['id.json', 'foo.json', 'bar.json', 'components.yaml']
     fsx.rmrfSync(tempFolder)
     fsx.mkdirpSync(tempFolder)
     async.eachSeries(

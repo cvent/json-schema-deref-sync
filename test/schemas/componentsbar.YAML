@@ -1,5 +1,0 @@
-components:
-  schemas:
-    Bar:
-      "description": "bar property"
-      "type": "boolean"
