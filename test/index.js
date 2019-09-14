@@ -6,6 +6,7 @@ describe('json-schema-deref-sync', function () {
   var fsx = require('fs.extra')
   var async = require('async')
   var fileLoader = require('../lib/loaders/file')
+  var customLoaders = require('./custom-loaders')
 
   var tempFolder = '/var/tmp/json-deref-schema-tests/'
   before(function (done) {
@@ -99,11 +100,16 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected)
     })
 
-    it('should work with yaml files', function () {
+    it('should work with yaml files using custom loader', function () {
       var input = require('./schemas/filerefsyaml.json')
       var expected = require('./schemas/basic')
 
-      var schema = deref(input, { baseFolder: './test/schemas' })
+      var schema = deref(input, {
+        baseFolder: './test/schemas',
+        loaders: {
+          file: customLoaders.file
+        }
+      })
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
