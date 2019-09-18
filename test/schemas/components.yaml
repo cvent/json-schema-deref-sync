@@ -1,0 +1,13 @@
+components:
+  schemas:
+    Id:
+      "description": "unique identifier of a the object"
+      "type": "string"
+      "minLength": 1
+    Foo:
+      "description": "foo property"
+      "readOnly": true
+      "type": "number"
+    Bar:
+      "description": "bar property"
+      "type": "boolean"
