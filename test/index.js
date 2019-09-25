@@ -391,5 +391,17 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
+
+    it('should not remove IDs from merged properties', function () {
+      var input = require('./schemas/removidsmerging.json')
+      var expected = require('./schemas/removidsmerging.expected.json')
+      var schema = deref(input, {
+        mergeAdditionalProperties: true,
+        removeIds: true,
+        baseFolder: './test/schemas'
+      })
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
   })
 })
