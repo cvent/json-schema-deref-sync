@@ -1,0 +1,16 @@
+{
+  "description": "Just a basic schema.",
+  "title": "Merge Properties",
+  "type": "object",
+  "properties": {
+    "foo": {
+      "description": "bar property",
+      "type": "boolean",
+      "$id": "mergingProperties"
+    },
+    "bar": {
+      "type": "boolean",
+      "description": "Merging properties without mutating the defintiion"
+    }
+  }
+}
