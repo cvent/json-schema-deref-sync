@@ -403,5 +403,17 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.be.ok
       expect(schema).to.deep.equal(expected)
     })
+
+    it('should merge properties without mutating the definition', function () {
+      var input = require('./schemas/mergeproperties.json')
+      var expected = require('./schemas/mergeproperties.expected.json')
+      var schema = deref(input, {
+        mergeAdditionalProperties: true,
+        removeIds: true,
+        baseFolder: './test/schemas'
+      })
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
   })
 })

@@ -1,0 +1,15 @@
+{
+  "description": "Just a basic schema.",
+  "title": "Merge Properties",
+  "type": "object",
+  "properties": {
+    "foo": {
+      "$ref": "bar.json",
+      "$id": "mergingProperties"
+    },
+    "bar": {
+      "$ref": "bar.json",
+      "description": "Merging properties without mutating the defintiion"
+    }
+  }
+}
