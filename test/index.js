@@ -213,6 +213,15 @@ describe('json-schema-deref-sync', function () {
       expect(schema).to.deep.equal(expected)
     })
 
+    it('should work with deep links with special characters that represents slash and tilda', function () {
+      var input = require('./schemas/apideeplink-with-special-chars.json')
+      var expected = require('./schemas/apideeplink-with-special-chars.expected.json')
+
+      var schema = deref(input, { baseFolder: './test/schemas' })
+      expect(schema).to.be.ok
+      expect(schema).to.deep.equal(expected)
+    })
+
     it('should work with deep nested ref links', function () {
       var input = require('./schemas/apinestedrefs.json')
       var expected = require('./schemas/apinestedrefs.expected.json')

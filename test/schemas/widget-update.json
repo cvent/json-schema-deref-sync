@@ -6,6 +6,12 @@
     "foo-id": {
       "$ref": "foomodel.json#/definitions/id"
     },
+    "foo/bar/id": {
+      "$ref": "foomodel.json#/definitions/id"
+    },
+    "email~address": {
+      "$ref": "common-definitions.json#/definitions/email"
+    },
     "email": {
       "$ref": "common-definitions.json#/definitions/email"
     }
