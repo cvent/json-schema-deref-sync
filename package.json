@@ -10,7 +10,7 @@
     "schema",
     "deref"
   ],
-  "version": "0.14.0",
+  "version": "0.14.1",
   "homepage": "https://github.com/cvent/json-schema-deref-sync",
   "license": "MIT",
   "repository": {
