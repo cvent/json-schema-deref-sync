@@ -24,6 +24,7 @@
     "node": ">=6.0.0"
   },
   "main": "lib/index.js",
+  "types": "typings/json-schema-deref-sync.d.ts",
   "dependencies": {
     "clone": "^2.1.2",
     "dag-map": "~1.0.0",
@@ -47,6 +48,10 @@
     "test": "mocha",
     "docs": "jsdoc2md \"lib/**/*.js\" --template readme.hbs > README.md"
   },
+  "files": [
+    "lib",
+    "typings"
+  ],
   "directories": {
     "test": "test"
   }
