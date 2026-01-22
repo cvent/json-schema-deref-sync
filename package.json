@@ -28,7 +28,7 @@
     "clone": "^2.1.2",
     "dag-map": "~1.0.0",
     "is-valid-path": "^0.1.1",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.23",
     "md5": "~2.2.0",
     "memory-cache": "~0.2.0",
     "traverse": "~0.6.6",
